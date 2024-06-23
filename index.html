@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +9,11 @@
     <style>
         body {
             background-image: url(bgkhodam.jpeg);
-            background-size: cover; /* Adjusts the size of the background image to cover the entire container */
-            background-repeat: no-repeat; /* Ensures the background image does not repeat */
-            background-position: center center; /* Centers the background image */
-
-            background-color: rgb(255, 255, 255); /* Background lebih gelap */
-            font-family: 'Poppins', sans-serif; /* Font modern Poppins */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-color: rgb(255, 255, 255);
+            font-family: 'Poppins', sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -30,31 +28,29 @@
         .card {
             background-color: rgba(0, 0, 0, 0.25);
             padding: 20px;
-            border: 2px solid #fcfffd; /* Border jingga ke kuningan */
+            border: 2px solid #fcfffd;
             border-radius: 20px;
             width: 100%;
             max-width: 500px;
-            box-shadow: 1px 5px 8px 0px #ffffff; /* Shadow lebih gelap */
-            backdrop-filter: blur(10px); /* Blur lebih kuat */
-            position: relative; /* Untuk positioning spinner */
+            box-shadow: 1px 5px 8px 0px #ffffff;
+            backdrop-filter: blur(10px);
+            position: relative;
         }
 
         h1 {
-            color: #ffffff; /* Warna font jingga ke kuningan */
+            color: #ffffff;
             margin-bottom: 40px;
             font-weight: bold;
         }
 
         p {
-            color: #ffffff; /* Warna font jingga ke kuningan */
+            color: #ffffff;
             margin-bottom: 20px;
         }
-
 
         input[type="text"] {
             padding: 10px;
             font-size: 20px;
-            /*font-weight: bold;*/
             border: 2px solid #ffffff;
             border-radius: 10px;
             text-align: center;
@@ -65,7 +61,7 @@
         }
 
         input::placeholder {
-            color: rgb(194, 191, 191)
+            color: rgb(194, 191, 191);
         }
 
         button {
@@ -73,18 +69,18 @@
             color: #ffffff;
             padding: 10px 20px;
             font-size: 16px;
-            border:color-mix(in hsl longer hue, color percentage, color percentage); /*none*/
-            border-radius: 10px; /* Border radius yang lebih kecil */
+            border: none;
+            border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-            display: 1 block;
+            display: block;
             margin: auto;
         }
 
         button:hover {
             background-color: #00ff48;
-            transform: translateY(-3px); /* Efek naik saat hover */
-            box-shadow: 0 6px 12px #ffffff; /* Shadow lebih dalam saat hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px #ffffff;
         }
 
         .footer {
@@ -95,8 +91,6 @@
             width: 100%;
             text-align: center;
             font-size: 20px;
-            padding-bottom: 0px;
-            margin: auto;
         }
 
         #result {
@@ -113,14 +107,10 @@
         .loading-spinner {
             border: 4px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
-            border-top: 4px solid #000000; /* Warna jingga ke kuningan */
+            border-top: 4px solid #000000;
             width: 40px;
             height: 40px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-top: -20px; /* Setengah dari tinggi */
-            margin-left: -20px; /* Setengah dari lebar */
+            margin: 20px auto;
             animation: spin 1s linear infinite;
         }
 
@@ -129,93 +119,122 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Media Queries untuk responsivitas */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .popup-content p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+                /* Responsive design */
         @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
             .card {
+                width: 90%;
                 padding: 15px;
             }
 
-            input[type="text"] {
-                width: 50%;
-                font-size: 14px;
-                padding: 10px; /* Menyesuaikan padding */
-                border-radius: 10px; /* Menyesuaikan border radius */
-            }
-
-            button {
-                padding: 15px 15px;
-                font-size: 14px;
-                border-radius: 10px; /* Menyesuaikan border radius */
-            }
-
-            h1{
-                font-size: 25px;
+            h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
             }
 
             p {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            input[type="text"] {
                 font-size: 18px;
+                padding: 8px;
+                width: 100%;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
             }
 
             .footer {
-                color: #ffffff;
-                font-weight: bold;
-                position: absolute;
-                bottom: 3px;
-                width: 100%;
-                text-align: center;
-                font-size: 20px;
-                padding-bottom: 0px;
-                margin: auto;
+                font-size: 14px;
+            }
+
+            #result {
+                margin-top: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .card {
-                padding: 20px;
-            }
-
-            input[type="text"] {
-                width:50%;
-                font-size: 15px;
-                padding: 10px; /* Menyesuaikan padding */
-                border-radius: 10px; /* Menyesuaikan border radius */
-            }
-
-            button {
-                padding: 12px 10px;
-                font-size: 12px;
-                border-radius:10px; /* Menyesuaikan border radius */
-            }
-
-            h1{
-                font-size: 25px;
+            h1 {
+                font-size: 20px;
             }
 
             p {
-                font-size: 18px;
+                font-size: 14px;
+            }
+
+            input[type="text"] {
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 12px;
+                padding: 6px 12px;
             }
 
             .footer {
-                color: #ffffff;
-                font-weight: bold;
-                position: absolute;
-                bottom: 3px;
-                width: 100%;
-                text-align: center;
-                font-size: 20px;
-                padding-bottom: 0px;
-                margin: auto;
+                font-size: 12px;
+            }
+
+            .popup-content p {
+                font-size: 16px;
             }
         }
+
     </style>
 </head>
-
 <body>
     <div class="card">
         <h1>Check Khodam</h1>
         <p>Masukkan nama untuk mengecek khodam anda</p>
         <input type="text" id="nameInput" placeholder="Masukkan nama anda" onkeydown="handleKeyDown(event)">
-        <button onclick="cekKhodam()">Check Khodam</button> 
+        <button onclick="cekKhodam()">Check Khodam</button>
         <div id="loading" class="loading-spinner" style="display: none;"></div>
 
         <button onclick="resetForm()" style="margin-top: 20px;">Ingin Cek Lagi?</button>
@@ -227,9 +246,30 @@
     <div class="footer">
         © by<a target="_blank"> Fidhera</a>
     </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <p>Sedang membaca khodam Anda</p>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         const khodamMemory = {};
+
+        function showPopup() {
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        document.getElementById('closeBtn').onclick = function() {
+            hidePopup();
+        }
 
         function cekKhodam() {
             const nameInput = document.getElementById('nameInput').value;
@@ -242,19 +282,19 @@
                 return;
             }
 
-            document.getElementById('loading').style.display = 'block'; // Tampilkan random Khodam dan artinya
+            showPopup(); // Tampilkan popup loading
             setTimeout(() => {
                 if (nameInput === 'raffael') {
                     const khodam = { name: "RAJA IBLIS", meaning: "Kamu adalah pemimpin kegelapan, membawa kekuatan besar dan ketakutan di mana pun kamu pergi." };
                     displayKhodam(khodam);
                     return;
-                } // VIP ORANG SPESIAL/OWNER
-                
+                }
+
                 if (nameInput === 'fidhera') {
                     const khodam = { name: "Harimau Putih", meaning: "Kamu kuat dan berani seperti harimau, karena pendahulumu mewariskan kekuatan besar padamu." };
                     displayKhodam(khodam);
                     return;
-                } // Tambahkan kondisi untuk 'fidhera'
+                }
 
                 if (khodamMemory[nameInput]) {
                     const khodam = khodamMemory[nameInput];
@@ -757,19 +797,19 @@
                   
                         // Tambahkan khodam lainnya sesuai kebutuhan
                     ];
-                    const khodam = khodams[Math.floor(Math.random() * khodams.length)];
+                    const randomIndex = Math.floor(Math.random() * khodams.length);
+                    const khodam = khodams[randomIndex];
                     khodamMemory[nameInput] = khodam;
                     displayKhodam(khodam);
                 }
-            }, 500); // Delay untuk loading
+            }, 2000); // Delay untuk loading
         }
 
         function displayKhodam(khodam) {
             document.getElementById('khodamName').innerText = `${khodam.name}`;
-            //document.getElementById('khodamName').innerText = `Khodam: ${khodam.name}`;
             document.getElementById('khodamMeaning').innerText = khodam.meaning;
             document.getElementById('result').style.display = 'block';
-            document.getElementById('loading').style.display = 'none'; // Sembunyikan spinner
+            hidePopup(); // Sembunyikan popup loading
         }
 
         function resetForm() {
@@ -784,5 +824,4 @@
         }
     </script>
 </body>
-
 </html>
